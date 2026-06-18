@@ -14,16 +14,13 @@ pnpm dev
 bun dev
 ```
 
-# Backend Implementation Report
-## SonicSeeker: Backend Overview
-
-## Executive Summary
+# Implementation Overview
 
 SonicSeeker is an AI-assisted media intelligence platform with a backend focused on speech processing workflows: authentication, audio/video transcription, optional speaker diarization, multilingual translation, transcript summarization, YouTube transcript ingestion, transcript persistence, media retrieval, and mind map generation.
 
 The backend is implemented primarily through Next.js Route Handlers with a Python ML layer invoked through controlled subprocess execution. It combines database persistence (MongoDB), secure user authentication (JWT + hashed passwords), AI inference orchestration (Whisper, pyannote, Hugging Face, Ollama), and operational safeguards (timeouts, temporary file isolation, cleanup routines, and structured error handling).
 
-This version is written for placement discussion. It explains what was built, why it was built that way, and what concrete backend evidence exists in the implementation, without including code snippets.
+It explains what was built, why it was built that way, and what concrete backend evidence exists in the implementation, without including code snippets.
 
 ## 1. Architecture Overview
 
@@ -271,21 +268,8 @@ Evidence-oriented response interpretation:
 - backend returns domain-shaped payloads, not generic placeholders
 - error payloads preserve diagnostics for debugging and support
 - ML endpoints return both content output and processing metadata when relevant
-
-## 10. Proof of Correct Backend Implementation
-
-Strong proof points from the implementation:
-
-- real user auth with hashed passwords and expiring JWT tokens
-- real persistence layer with linked user, transcript, and media entities
-- real AI pipeline execution (Whisper, diarization, translation, summarization, YouTube extraction, mind mapping)
-- real subprocess orchestration with file lifecycle management
-- real runtime metrics and error propagation in API responses
-- real frontend-to-backend endpoint consumption across multiple product surfaces
-
-These are concrete backend engineering signals, not mock-only demonstrations.
-
-## 11. Conclusion
+  
+## 10. Conclusion
 
 SonicSeeker demonstrates a practical and credible backend implementation for placement evaluation because it combines application APIs, data persistence, security primitives, ML orchestration, and operational safeguards into one integrated system. The project is not limited to simple CRUD; it implements multi-stage AI workflows, handles external and local inference paths, and returns structured outputs usable by production UI flows.
 
